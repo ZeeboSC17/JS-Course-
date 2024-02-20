@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6f-g-h-i-</title>
+</head>
+<body>
+    <button onclick="playGame('heads')">Heads</button>
+    <button onclick="playGame('tails')">Tails</button>
+    <script>
+        var guess;
+
+        const score = JSON.parse(localStorage.getItem('score')) || {
+            wins:  0,
+            losses: 0
+        };
+
+        function playGame(guess) {
+            var rand = Math.random();
+            var result;
+            rand < 0.5 ? result = 'heads' : result = 'tails';
+            // if (rand < 0.5) {
+            //     result = "heads";
+            // } else {
+            //     result = "tails";
+            // }
+
+            if (guess === result) {
+                score.wins++;
+                console.log("You Win!");
+            } else {
+                score.losses++;
+                console.log("You lose!");
+            }
+            // guess == result ? console.log("You Win!") : console.log("You Lose!");
+            localStorage.setItem('score', JSON.stringify(score));
+            console.log(score);
+        }
+
+
+
+        
+    </script>
+</body>
+</html>
