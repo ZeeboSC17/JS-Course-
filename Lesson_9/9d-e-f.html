@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9d-e-f</title>
+</head>
+<body>
+    <input type="text" class="js-input" onkeydown="enterSubmit(event)">
+    <button onclick="namer()">Submit</button>
+    <p class="js-name"></p>
+
+    <script>
+        function namer() {
+            const value = document.querySelector('.js-input').value;
+            document.querySelector('.js-name').innerHTML = `Your name is: ${value}`;
+        }
+
+        function enterSubmit(event) {
+            if (event.key === 'Enter') {
+                namer();
+            }
+        }
+    </script>
+</body>
+</html>

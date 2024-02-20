@@ -10,6 +10,7 @@
 <html>
   <head></head>
   <body onload="setCalculation()">
+    <p class="js-display"></p>
     <p>
       <button onclick="
         updateCalculation('1');
@@ -98,6 +99,7 @@
         calc = JSON.parse(localStorage.getItem('calc')) || {
             calculation: ''
         };
+        document.querySelector('.js-display').innerHTML = calc.calculation;
     }
       
     function updateCalculation(char) {
@@ -108,6 +110,8 @@
         } else {
             calc.calculation += char;
         }
+        
+        document.querySelector('.js-display').innerHTML = calc.calculation;
         localStorage.setItem('calc', JSON.stringify(calc));
         console.log(calc.calculation);
     }
